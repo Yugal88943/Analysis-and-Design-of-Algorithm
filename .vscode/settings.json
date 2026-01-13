@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+        "algorithm": "c",
+        "limits": "c",
+        "array": "c",
+        "concepts": "c",
+        "deque": "c",
+        "string": "c",
+        "unordered_map": "c",
+        "vector": "c",
+        "memory": "c",
+        "optional": "c",
+        "string_view": "c",
+        "istream": "c",
+        "ostream": "c",
+        "streambuf": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "stdio.h": "c"
+    }
+}

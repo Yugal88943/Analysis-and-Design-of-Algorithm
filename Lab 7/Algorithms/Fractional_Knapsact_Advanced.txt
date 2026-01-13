@@ -1,0 +1,47 @@
+************************************************************
+Basic Idea:
+************************************************************
+Pick items in decreasing order of value/weight ratio and take 
+full or fractional part until the knapsack is full.
+************************************************************
+************************************************************
+Algorithm Fractional_Knapsack(value[], weight[], n, W)
+
+1. For each item i = 1 to n:
+        Compute ratio[i] = value[i] / weight[i]
+
+2. Sort all items in decreasing order of ratio
+
+3. totalValue ← 0
+
+4. For i = 1 to n:
+        If W = 0:
+             Exit loop
+
+        If weight[i] ≤ W:
+             totalValue ← totalValue + value[i]
+             W ← W - weight[i]
+
+        Else:
+             fraction ← W / weight[i]
+             totalValue ← totalValue + value[i] * fraction
+             W ← 0
+
+5. Return totalValue
+
+****************************************************************
+Time Complexity:
+****************************************************************
+Computing ratios → O(n)
+
+QuickSort sorting → O(n log n)
+
+Filling knapsack → O(n)
+
+****************************************************************
+Space Complexity
+****************************************************************
+Storing items → O(n)
+
+Recursion stack for quicksort → O(log n)
+****************************************************************

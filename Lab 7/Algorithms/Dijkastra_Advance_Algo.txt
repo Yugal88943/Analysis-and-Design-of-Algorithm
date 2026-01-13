@@ -1,0 +1,66 @@
+*****************************************************
+Basic Idea:
+Use a min-heap to always pick the next nearest node fast, 
+so shortest paths are found quicker without scanning all nodes.
+
+*****************************************************
+Algorithm: Dijkstra using Min-Heap (Optimized)
+
+Input: Graph G as adjacency list, source node s
+Output: Shortest distance from s to all other nodes
+
+1. For each node i:
+       dist[i] = ∞
+       visited[i] = false
+
+2. dist[s] = 0
+
+3. Create a min-heap (priority queue)
+   Insert (0, s) into heap
+
+4. While heap is not empty:
+       (d, u) = extract minimum from heap
+       If visited[u] = true:
+            continue
+       visited[u] = true
+
+       For each neighbor v of u with edge weight w:
+            If dist[u] + w < dist[v]:
+                   dist[v] = dist[u] + w
+                   Insert (dist[v], v) into heap
+
+5. Return dist[]
+
+*****************************************************
+Time Complexity:
+*****************************************************
+Time Complexity
+
+Using adjacency list + min heap:
+
+O((V + E) log V)
+
+
+Where:
+
+V = number of nodes
+
+E = number of edges
+
+*****************************************************
+Space Complexity
+*****************************************************
+O(V + E)
+For:
+
+dist array
+
+visited array
+
+adjacency list
+
+heap
+
+*****************************************************
+
+

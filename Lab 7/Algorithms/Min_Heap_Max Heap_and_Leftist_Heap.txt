@@ -1,0 +1,157 @@
+1) MIN HEAP — ALGORITHMS
+
+BAsic Idea:
+A tree where every parent is smaller than its children, so the minimum element is always at the root.
+************************************
+Algorithm: MinHeap_Insert(x)
+
+1. Place x at the end of the heap array
+2. Set i = index of x
+3. While i > 0 and heap[parent(i)] > heap[i]:
+        Swap heap[i] with parent(i)
+        i = parent(i)
+4. End
++++++++++++++++++++++++++++++++++++++
+Algorithm: MinHeap_DeleteMin()
+
+1. Replace root with last element
+2. Reduce heap size by 1
+3. Set i = 0
+4. While i has a smaller child:
+        Let smallest = index of smaller child
+        If heap[i] > heap[smallest]:
+            Swap
+            i = smallest
+        Else break
+5. End
+++++++++++++++++++++++++++++++++++
+Algorithm: MinHeap_LevelOrder()
+
+1. For i = 0 to size-1:
+        Print heap[i]
+2. End
+++++++++++++++++++++++++++++++++++
+----------------------------------
+Time Complexity
+----------------------------------
+Insert	        O(log n)
+Delete-min  	O(log n)
+Level-order 	O(n)
+----------------------------------
+----------------------------------
+Space Complexity
+----------------------------------
+O(n)
+----------------------------------
+
+
+
+////////////////////////////////////
+2) MAX HEAP — ALGORITHMS
+
+Basic Idea:
+A tree where every parent is larger than its children, so the maximum element is always at the root.
+*************************************
+Algorithm: MaxHeap_Insert(x)
+
+1. Insert x at end of heap
+2. Set i = index of x
+3. While i > 0 and heap[parent(i)] < heap[i]:
+        Swap with parent
+        i = parent(i)
+4. End
+
++++++++++++++++++++++++++++++++++++++
+Algorithm: MaxHeap_DeleteMax()
+
+1. Move last element to root
+2. Reduce heap size
+3. Set i = 0
+4. While i has a larger child:
+        Let largest = index of larger child
+        If heap[i] < heap[largest]:
+            Swap
+            i = largest
+        Else break
+5. End
+
+++++++++++++++++++++++++++++++++++++
+Algorithm: MaxHeap_LevelOrder()
+
+1. For each element of heap array:
+        Print element
+2. End
+++++++++++++++++++++++++++++++++++++
+-------------------------------------
+Time Complexity
+-------------------------------------
+Insert	        O(log n)
+Delete-max	    O(log n)
+Level-order	    O(n)
+-------------------------------------
+Space Complexity
+-------------------------------------
+O(n)
+
+-------------------------------------
+
+
+
+
+/////////////////////////////////////
+3) LEFTIST HEAP — ALGORITHMS
+
+Basic Idea:
+A merge-friendly heap that keeps the shortest subtree on the right so merging two heaps becomes very fast.
+*************************************
+Algorithm: LeftistHeap_Merge(H1, H2)
+
+1. If H1 is NULL → return H2
+2. If H2 is NULL → return H1
+3. If H2.key < H1.key:
+        Swap H1 and H2
+4. H1.right = Merge(H1.right, H2)
+5. If NPL(left child) < NPL(right child):
+        Swap left and right child
+6. Update H1.npl = NPL(H1.right) + 1
+7. Return H1
+++++++++++++++++++++++++++++++++++++++
+Algorithm: LeftistHeap_Insert(x)
+
+1. Create a new node Hx with key = x
+2. H = Merge(H, Hx)
+3. End
+++++++++++++++++++++++++++++++++++++++
+Algorithm: LeftistHeap_DeleteMin()
+
+1. Save left child as L
+2. Save right child as R
+3. Delete root
+4. H = Merge(L, R)
+5. End
+++++++++++++++++++++++++++++++++++++++
+Algorithm: LeftistHeap_LevelOrder()
+
+1. Use queue Q
+2. Push root into Q
+3. While Q not empty:
+        Pop node
+        Print node.key
+        Push its left and right children (if exist)
+4. End
+++++++++++++++++++++++++++++++++++++++
+--------------------------------------
+Time Complexity
+--------------------------------------
+Merge	    O(log n) (amortized)
+Insert	    O(log n)
+Delete-min	O(log n)
+Level-order	O(n)
+
+--------------------------------------
+Space Complexity
+--------------------------------------
+O(n)
+
+
+--------------------------------------

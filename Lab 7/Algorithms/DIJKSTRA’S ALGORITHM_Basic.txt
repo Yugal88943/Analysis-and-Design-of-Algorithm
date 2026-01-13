@@ -1,0 +1,47 @@
+Basic Idea:
+************************************************
+Start from the source, always pick the next nearest (cheapest) node, and gradually update distances.
+************************************************
+************************************************
+
+Algorithm: Dijkstra’s Algorithm (Simple Version)
+
+Input: Graph G with non-negative edge weights, source node s
+Output: Shortest distance from s to all other nodes
+
+1. For each node i:
+       dist[i] = ∞
+       visited[i] = false
+
+2. dist[s] = 0
+
+3. Repeat (N - 1) times:
+       a. Select the unvisited node u with smallest dist[u]
+       b. Mark visited[u] = true
+       c. For each neighbor v of u:
+             if dist[u] + weight(u, v) < dist[v]:
+                    dist[v] = dist[u] + weight(u, v)
+
+4. End
+
+************************************************
+Time Complexity:
+************************************************
+Selecting minimum every time → O(N²)
+
+Updating neighbors → O(N)
+
+Total → O(N²)
+
+************************************************
+Space Complexity:
+************************************************
+dist array → O(N)
+
+visited array → O(N)
+
+graph matrix → O(N²)
+
+Total → O(N²)
+
+************************************************
